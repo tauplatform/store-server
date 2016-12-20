@@ -29,7 +29,7 @@ GEM
       vegas (~> 0.1.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rhoconnect (5.5.2)
+    rhoconnect (3.3.6)
       bundler (~> 1.0)
       json (~> 1.6.0)
       rake (~> 0.9.2.2)
@@ -77,7 +77,7 @@ DEPENDENCIES
   async-rack
   dbd-jdbc (>= 0.1.4)
   dbi (>= 0.4.5)
-  eventmachine (>= 1.2.1)
+  eventmachine (~> 1.0.0)
   jdbc-sqlite3 (>= 3.7.2)
   jruby-openssl (>= 0.7.4)
   rack-fiber_pool
