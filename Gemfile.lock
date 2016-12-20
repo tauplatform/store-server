@@ -77,7 +77,7 @@ DEPENDENCIES
   async-rack
   dbd-jdbc (>= 0.1.4)
   dbi (>= 0.4.5)
-  eventmachine (=> 1.2.1)
+  eventmachine (>= 1.2.1)
   jdbc-sqlite3 (>= 3.7.2)
   jruby-openssl (>= 0.7.4)
   rack-fiber_pool
