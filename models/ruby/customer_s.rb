@@ -4,7 +4,7 @@ require 'rest_client'
 class Customer_s < Rhoconnect::Model::Base
 
   def initialize(source)
-    @base = 'http://rhostore.herokuapp.com/customers'
+    @base = 'http://taustore.herokuapp.com/customers'
     super(source)
   end
 
