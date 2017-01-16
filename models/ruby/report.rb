@@ -18,7 +18,7 @@ class Report < Rhoconnect::Model::Base
   end
 
   def create(create_hash)
-    res = RestClient.post(@base, :product => create_hash)
+    res = RestClient.post(@base, :report => create_hash)
 
     # After create we are redirected to the new record.
     # We need to get the id of that record and return
@@ -40,7 +40,7 @@ class Report < Rhoconnect::Model::Base
     RestClient.delete("#{@base}/#{delete_hash['id']}")
   end
 
-  def store_blob(obj,field_name,blob)
+  def store_blob(obj, field_name, blob)
     puts ">>>>>>>>>>>>>>>>>>>>>> store_blob"
     puts "#{obj}"
     puts "#{field_name}"
