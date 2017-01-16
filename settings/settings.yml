@@ -3,6 +3,8 @@
     :poll_interval: 0
   Product:
     :poll_interval: 0
+  Report:
+    :poll_interval: 0
   Customer_s:
     :poll_interval: 0
   Product_s:

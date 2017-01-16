@@ -24,7 +24,6 @@ class Customer < Rhoconnect::Model::Base
     query(params)
   end
 
-
   def create(name_value_list)
     res = RestClient.post(@base,:customer => name_value_list)
 
