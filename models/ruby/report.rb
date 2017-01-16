@@ -39,4 +39,16 @@ class Report < Rhoconnect::Model::Base
   def delete(delete_hash)
     RestClient.delete("#{@base}/#{delete_hash['id']}")
   end
+
+  def store_blob(obj,field_name,blob)
+    # ... custom code to store the blob file ...
+    my_stored_filename = do_custom_store[blob[:filename]]
+    obj['filename'] = my_stored_filename
+  end
+end
+
+def store_blob(obj,field_name,blob)
+  # ... custom code to store the blob file ...
+  my_stored_filename = do_custom_store[blob[:filename]]
+  obj['filename'] = my_stored_filename
 end
