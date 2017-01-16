@@ -46,7 +46,7 @@ class Report < Rhoconnect::Model::Base
     puts "field_name"
     puts "blob"
     # ... custom code to store the blob file ...
-    my_stored_filename = do_custom_store[blob[:filename]]
-    obj['filename'] = my_stored_filename
+    # my_stored_filename = do_custom_store[blob[:filename]]
+    obj['filename'] = blob[:filename]
   end
 end
