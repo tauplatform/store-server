@@ -45,18 +45,7 @@ class Report < Rhoconnect::Model::Base
     puts "#{obj}"
     puts "#{field_name}"
     puts "#{blob}"
-    request = RestClient::Request.new(
-        :method => :post,
-        :url => 'https://taustore.herokuapp.com/upload',
-        :user => "",
-        :password => "",
-        :payload => {
-            :multipart => true,
-            :userfile => File.new(realpath, 'rb'),
-            :filename => "#{create_hash["guid"]}.jpg",
-            :guid => create_hash["guid"]
-        })
-    res = request.execute
-    JSON.parse(res.body)["resource"]["guid"]
+    RestClient.post('https://taustore.herokuapp.com/upload', :file => File.new(blob[:tempfile].path))
+    blob[:filename]
   end
 end
