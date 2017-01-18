@@ -41,7 +41,7 @@ class Report < Rhoconnect::Model::Base
   end
 
   def store_blob(obj, field_name, blob)
-    puts ">>>>>>>>>>>>>>>>>>>>>> store_blob"
+    puts ">>>>>>>>>>>>>>>>>>>>>> store_blob in model"
     puts "#{obj}"
     puts "#{field_name}"
     puts "#{blob}"
@@ -54,4 +54,20 @@ class Report < Rhoconnect::Model::Base
     puts "response json #{json}"
     blob[:filename]
   end
+end
+
+
+def store_blob(obj, field_name, blob)
+  puts ">>>>>>>>>>>>>>>>>>>>>> store_blob outside model"
+  puts "#{obj}"
+  puts "#{field_name}"
+  puts "#{blob}"
+  response = RestClient.post(
+      'https://taustore.herokuapp.com/upload',
+      :file => File.new(blob[:tempfile].path, 'rb'),
+      :accept => :json
+  )
+  json = JSON.parse(response.body)
+  puts "response json #{json}"
+  blob[:filename]
 end
