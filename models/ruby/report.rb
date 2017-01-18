@@ -45,8 +45,13 @@ class Report < Rhoconnect::Model::Base
     puts "#{obj}"
     puts "#{field_name}"
     puts "#{blob}"
-    response = RestClient.post('https://taustore.herokuapp.com/upload', :file => File.new(blob[:tempfile].path, 'rb'))
-    puts "repsponse #{response}"
+    response = RestClient.post(
+        'https://taustore.herokuapp.com/upload',
+        :file => File.new(blob[:tempfile].path, 'b'),
+        :accept => :json
+    )
+    json = JSON.parse(RestClient.get("#{res.headers[:location]}.json").body)
+    puts "response json #{json}"
     blob[:filename]
   end
 end
