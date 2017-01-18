@@ -50,7 +50,7 @@ class Report < Rhoconnect::Model::Base
         :file => File.new(blob[:tempfile].path, 'rb'),
         :accept => :json
     )
-    json = JSON.parse(RestClient.get("#{res.headers[:location]}.json").body)
+    json = JSON.parse(response.body)
     puts "response json #{json}"
     blob[:filename]
   end
